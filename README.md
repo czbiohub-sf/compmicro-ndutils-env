@@ -1,2 +1,2 @@
 # compmicro-conda-envs
-Shared conda environments maintained by the CompMicro platform
+Enfironment definition and automated build for Comp Micro's ndutils Conda environment
