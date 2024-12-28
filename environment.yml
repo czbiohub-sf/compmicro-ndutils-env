@@ -1,7 +1,7 @@
 name: ndutils-env
 
 dependencies:
-  - python=3.11
+  - python=3.10
   - pip:
     - iohub @ git+https://github.com/czbiohub-sf/iohub.git@c8822bc
     - napari[pyqt5]
