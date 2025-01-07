@@ -1,9 +1,7 @@
-name: ndutils-env
+name: ndutils
 
 dependencies:
   - python=3.10
+  - pip
   - pip:
-    - iohub @ git+https://github.com/czbiohub-sf/iohub.git@c8822bc
-    - napari[pyqt5]
-    - napari-iohub @ git+https://github.com/czbiohub-sf/napari-iohub.git@29cd36b # does not include clustering
-    - napari-animation
+    - -r requirements.txt
