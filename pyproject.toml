@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -27,11 +27,16 @@ classifiers = [
   "Programming Language :: Python :: 3 :: Only",
 ]
 
+[project.scripts]
+ndutils_env = "ndutils_env:version"
+
 [project.urls]
 "Homepage" = "https://github.com/czbiohub-sf/compmicro-conda-envs"
 "Source" = "https://github.com/czbiohub-sf/compmicro-conda-envs"
+
 
 [tool.setuptools]
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 [tool.setuptools_scm]
+version_file = "ndutils_env/_version.py"
