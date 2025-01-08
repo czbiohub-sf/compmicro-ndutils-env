@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "compmicro-ndutils-env"
+dynamic = ["version", "dependencies"]
+description = "ndutils compute environment for computation microscopy at CZBiohub SF"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["microscopy", "ndutils"]
+authors = [{ name = "Nathan Hammond", email = "nathan.hammond@czbiohub.org" }]
+maintainers = [
+  { name = "Ivan Ivanov", email = "ivan.ivanov@czbiohub.org" },
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Build Tools",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/czbiohub-sf/compmicro-conda-envs"
+"Source" = "https://github.com/czbiohub-sf/compmicro-conda-envs"
+
+[tool.setuptools]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+[tool.setuptools_scm]
