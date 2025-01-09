@@ -1,4 +1,5 @@
-FROM --platform=linux/amd64 ubuntu:22.04
+FROM ubuntu:22.04
+ARG PROJECT=compmicro-ndutils-env
 
 # below env var required to install libglib2.0-0 non-interactively
 ENV TZ=America/Los_Angeles
@@ -33,8 +34,12 @@ RUN apt-get update && \
         libxcb-shape0 \
         && apt-get clean
 
-COPY requirements.txt .
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+COPY . /src/${PROJECT}
+
+# DEBUG
+RUN ls -a /src/${PROJECT}/
+
+RUN pip install --upgrade pip setuptools && \
+    pip install /src/${PROJECT}
 
 ENTRYPOINT ["python3", "-m", "napari"]

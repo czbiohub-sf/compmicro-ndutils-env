@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "compmicro-ndutils-env"
 dynamic = ["version", "dependencies"]
-description = "ndutils compute environment for computation microscopy at CZBiohub SF"
+description = "ndutils compute environment for computational microscopy at CZBiohub SF"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
@@ -31,12 +31,13 @@ classifiers = [
 ndutils_env = "ndutils_env:version"
 
 [project.urls]
-"Homepage" = "https://github.com/czbiohub-sf/compmicro-conda-envs"
-"Source" = "https://github.com/czbiohub-sf/compmicro-conda-envs"
-
+"Homepage" = "https://github.com/czbiohub-sf/compmicro-ndutils-env"
+"Source" = "https://github.com/czbiohub-sf/compmicro-ndutils-env"
 
 [tool.setuptools]
+
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
+
 [tool.setuptools_scm]
 version_file = "ndutils_env/_version.py"
