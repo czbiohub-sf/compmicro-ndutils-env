@@ -6,7 +6,7 @@ on:
       - '*'
 
 env:
- BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+  REF_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
   docker:
@@ -37,6 +37,6 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64
-          tags: ghcr.io/${{ github.repository }}:${{ env.BRANCH_NAME }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          tags: ghcr.io/${{ github.repository }}:${{ env.REF_NAME }}
+          build-args: |
+              REF_NAME=${{ env.REF_NAME }}
