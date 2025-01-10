@@ -3,7 +3,7 @@ requires = ["setuptools>=64", "setuptools_scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "compmicro-ndutils-env"
+name = "ndutils"
 dynamic = ["version", "dependencies"]
 description = "ndutils compute environment for computational microscopy at CZBiohub SF"
 readme = "README.md"
@@ -28,7 +28,7 @@ classifiers = [
 ]
 
 [project.scripts]
-ndutils_env = "ndutils_env:version"
+ndutils_version = "ndutils:version"
 
 [project.urls]
 "Homepage" = "https://github.com/czbiohub-sf/compmicro-ndutils-env"
@@ -40,4 +40,4 @@ ndutils_env = "ndutils_env:version"
 dependencies = {file = ["requirements.txt"]}
 
 [tool.setuptools_scm]
-version_file = "ndutils_env/_version.py"
+version_file = "ndutils/_version.py"

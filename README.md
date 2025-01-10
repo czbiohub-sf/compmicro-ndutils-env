@@ -20,3 +20,13 @@ git clone git@github.com:czbiohub-sf/compmicro-ndutils-env.git
 cd compmicro-ndutils-env
 docker build .
 ```
+
+## Checking the installed version
+You can check the version of the installed ndutils environment using the ndutils_version command or with "pip list"
+```
+$ ndutils_version
+0.2.0.dev2
+
+$ pip list | grep ndutils
+compmicro-ndutils-env         0.2.0.dev2
+```
