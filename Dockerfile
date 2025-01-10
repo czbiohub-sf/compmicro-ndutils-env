@@ -40,7 +40,7 @@ ARG REF_NAME=""
 # We use the REF_NAME build-arg to reset the docker cache, which prevents
 # using a cached build with. Without this, setuptools-scm may not produce
 # the correct version.
-echo "REF_NAME: $REF_NAME"
+RUN echo "REF_NAME: $REF_NAME"
 
 RUN pip install --upgrade pip setuptools && \
     pip install /src/${PROJECT}
