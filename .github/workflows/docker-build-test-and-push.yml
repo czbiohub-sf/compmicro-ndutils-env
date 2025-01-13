@@ -5,6 +5,10 @@ on:
     tags:
       - '*'
 
+permissions:
+  contents: read
+  packages: write
+
 env:
   REF_NAME: ${{ github.head_ref || github.ref_name }}
 

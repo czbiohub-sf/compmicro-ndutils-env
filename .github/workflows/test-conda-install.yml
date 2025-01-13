@@ -1,4 +1,4 @@
-name: Test pip install
+name: Test conda install
 
 on:
   push:
@@ -25,9 +25,8 @@ jobs:
 
     - name: Install package
       run: |
-        python3 -m pip install --upgrade pip
-        python3 -m pip install .
+        $CONDA/bin/conda env update --file environment.yml --name base
 
     - name: Test with unittest
       run: |
-        python3 -m unittest discover
+        $CONDA/bin/python3 -m unittest discover
