@@ -28,7 +28,7 @@ classifiers = [
 ]
 
 [project.scripts]
-ndutils_version = "ndutils:version"
+env_version = "ndutils:env_version"
 
 [project.urls]
 "Homepage" = "https://github.com/czbiohub-sf/compmicro-ndutils-env"
