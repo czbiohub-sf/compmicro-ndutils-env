@@ -1,4 +1,4 @@
-name: Test pip and conda installs, build Docker image
+name: Test pip and conda installs, build Docker image, create release
 
 on:
   push:

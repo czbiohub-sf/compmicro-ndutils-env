@@ -44,7 +44,7 @@ cloudpickle==3.1.1
     # via dask
 comm==0.2.2
     # via ipykernel
-dask[array]==2024.12.1
+dask[array]==2025.1.0
     # via
     #   iohub
     #   napari
@@ -313,7 +313,7 @@ qtpy==2.4.2
     #   napari-iohub
     #   qtconsole
     #   superqt
-referencing==0.36.0
+referencing==0.36.1
     # via
     #   jsonschema
     #   jsonschema-specifications
