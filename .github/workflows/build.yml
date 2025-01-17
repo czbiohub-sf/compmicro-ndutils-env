@@ -6,14 +6,14 @@ on:
       - '*'
 
 permissions:
-  contents: read
+  contents: write
   packages: write
 
 env:
   REF_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  test_job:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -39,9 +39,9 @@ jobs:
     - name: Test Conda installed version with unittest
       run: |
         $CONDA/bin/python3 -m unittest discover
-  build_job:
+  build:
     runs-on: ubuntu-latest
-    needs: test_job
+    needs: test
     steps:
       - name: Checkout git repo with all tags and history
         uses: actions/checkout@v4
@@ -62,3 +62,17 @@ jobs:
           tags: ghcr.io/${{ github.repository }}:${{ env.REF_NAME }}
           build-args: |
               REF_NAME=${{ env.REF_NAME }}
+  release:
+    name: Release pushed tag
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+        run: |
+          gh release create "$tag" \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${GITHUB_REPOSITORY#*/} ${tag#v}" \
+              --generate-notes
