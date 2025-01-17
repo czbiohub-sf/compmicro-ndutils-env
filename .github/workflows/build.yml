@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Test pip and conda installs, build Docker image
 
 on:
   push:
