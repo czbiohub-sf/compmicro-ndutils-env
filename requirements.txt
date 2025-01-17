@@ -93,8 +93,8 @@ in-n-out==0.2.1
     # via app-model
 iohub @ git+https://github.com/czbiohub-sf/iohub.git@c8822bc
     # via
+    #   -r requirements.in
     #   napari-iohub
-    #   ndutils (pyproject.toml)
 ipykernel==6.29.5
     # via
     #   napari-console
@@ -146,14 +146,14 @@ msgpack==1.1.0
     # via blosc2
 napari[pyqt5]==0.5.5
     # via
+    #   -r requirements.in
     #   napari-animation
-    #   ndutils (pyproject.toml)
 napari-animation==0.0.8
-    # via ndutils (pyproject.toml)
+    # via -r requirements.in
 napari-console==0.1.3
     # via napari
 napari-iohub @ git+https://github.com/czbiohub-sf/napari-iohub.git@29cd36b
-    # via ndutils (pyproject.toml)
+    # via -r requirements.in
 napari-plugin-engine==0.2.0
     # via napari
 napari-svg==0.2.1

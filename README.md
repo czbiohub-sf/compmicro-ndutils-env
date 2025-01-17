@@ -60,7 +60,9 @@ Summary: ndutils compute environment for computational microscopy at CZBiohub SF
 ## Creating a new release
 To update this environment:
 * Check out the git repo and make edits
-  * Update Python dependencies by editing requirements.txt (which is used by Conda, Docker, and Pip install methods)
+  * Update top-level Python dependencies by editing requirements.in, then running "pip-compile" to create requirements.txt (which is used by Conda, Docker, and pip install)
+    * You must use the same version of Python as runs in github actions or there may be differences detected in requirements.txt and the github actions will fail
+    * If building on a macOS, remove the Mac-specific "appnope" package from requirements.txt before committing
   * Update Python version by editing both environment.yml (for Conda) and Dockerfile
 * Commit and push/merge changes to the *main* branch
 * Tag the commit with a version identifier (`git tag x.y.z`)
