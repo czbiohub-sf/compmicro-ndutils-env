@@ -26,7 +26,7 @@ jobs:
     - name: Confirm requirements.txt is up to date. (If not you should run "pip-compile").
       run: |
         mv requirements.txt requirements.txt.committed
-        pip install .[dev]
+        python3 -m pip install .[dev]
         pip-compile
         diff requirements.txt requirements.txt.committed  # Nonzero exit code if not identical
 
