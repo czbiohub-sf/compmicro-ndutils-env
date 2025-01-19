@@ -40,7 +40,7 @@ jobs:
               REF_NAME=${{ env.REF_NAME }}
   release:
     name: Release pushed tag
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Create release
