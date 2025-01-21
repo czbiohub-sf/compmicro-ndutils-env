@@ -1,5 +1,6 @@
 # For setuptools-scm automatic versioning, do not check in auto-generated _version.py file
 _version.py
+/requirements.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -18,12 +18,10 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - name: Confirm requirements.txt is up to date. (If not you should run "pip-compile").
+    - name: Create requirements.txt file
       run: |
-        mv requirements.txt requirements.txt.committed
         python3 -m pip install .[dev]
         pip-compile
-        diff requirements.txt requirements.txt.committed  # Nonzero exit code if not identical
     - name: Install package via pip
       run: |
         python3 -m pip install .
