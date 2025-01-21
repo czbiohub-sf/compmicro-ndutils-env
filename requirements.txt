@@ -176,7 +176,7 @@ numcodecs==0.13.1
     # via zarr
 numexpr==2.10.2
     # via blosc2
-numpy==2.2.1
+numpy==2.2.2
     # via
     #   blosc2
     #   dask
