@@ -7,18 +7,23 @@ runs:
     with:
       python-version: "3.10"
   - name: Create requirements.txt file
+    shell: bash
     run: |
       python3 -m pip install .[dev]
       pip-compile
   - name: Install package via pip
+    shell: bash
     run: |
       python3 -m pip install .
   - name: Test pip installed version with unittest
+    shell: bash
     run: |
       python3 -m unittest discover
   - name: Install package via conda
+    shell: bash
     run: |
       $CONDA/bin/conda env update --file environment.yml --name base
   - name: Test Conda installed version with unittest
+    shell: bash
     run: |
       $CONDA/bin/python3 -m unittest discover
