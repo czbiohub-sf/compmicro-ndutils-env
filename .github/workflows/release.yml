@@ -13,19 +13,14 @@ env:
   REF_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  build_and_test:
+  create_release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/reusable/install_and_test
-      - uses: ./.github/reusable/build_and_push_artifacts
+      - uses: ./.github/reusable/build_and_push_docker
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-  release:
-    name: Release pushed tag
-    needs: build_and_test
-    runs-on: ubuntu-latest
-    steps:
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
