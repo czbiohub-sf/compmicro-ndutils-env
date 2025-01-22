@@ -10,20 +10,19 @@ runs:
     shell: bash
     run: |
       python3 -m pip install .[dev]
-      pip-compile
+      python3 -m piptools compile
+  - name: Build a binary wheel and a source tarball
+    shell: bash
+    run: python3 -m build
   - name: Install package via pip
     shell: bash
-    run: |
-      python3 -m pip install .
+    run: pip install dist/*.whl
   - name: Test pip installed version with unittest
     shell: bash
-    run: |
-      python3 -m unittest discover
+    run: python3 -m unittest discover
   - name: Install package via conda
     shell: bash
-    run: |
-      $CONDA/bin/conda env update --file environment.yml --name base
+    run: $CONDA/bin/conda env update --file environment.yml --name base
   - name: Test Conda installed version with unittest
     shell: bash
-    run: |
-      $CONDA/bin/python3 -m unittest discover
+    run: $CONDA/bin/python3 -m unittest discover

@@ -18,10 +18,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/reusable/install_and_test
-      - uses: ./.github/reusable/docker_build_and_push
+      - uses: ./.github/reusable/build_and_push_artifacts
   release:
     name: Release pushed tag
-    needs: build_and_test
+    needs: build_and_testg
     runs-on: ubuntu-latest
     steps:
       - name: Create release
