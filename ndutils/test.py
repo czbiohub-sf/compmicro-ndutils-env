@@ -6,8 +6,7 @@ from . import env_version, _env_version_tuple
 
 
 class TestEnvVersion(TestCase):
-
-    @patch('sys.stdout', new_callable=StringIO)
+    @patch("sys.stdout", new_callable=StringIO)
     def test_env_version(self, mock_stdout):
         # Confirm non-empty stdout when calling env_version
         # Excpected value is "${package_name}\t${version}"
@@ -19,4 +18,3 @@ class TestEnvVersion(TestCase):
         (package, version) = _env_version_tuple()
         self.assertTrue(len(package) > 0)
         self.assertTrue(len(version) > 0)
-

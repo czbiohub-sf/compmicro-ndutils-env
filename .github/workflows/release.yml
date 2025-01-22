@@ -13,14 +13,10 @@ env:
   REF_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  test:
-    uses: ./.github/workflows/_test.yml
-  build:
+  build_requirements_and_test:
     runs-on: ubuntu-latest
-    needs: test
     steps:
-      - name: Checkout git repo with all tags and history
-        uses: actions/checkout@v4
+      - uses: ./.github/workflows/_setup.yml
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
