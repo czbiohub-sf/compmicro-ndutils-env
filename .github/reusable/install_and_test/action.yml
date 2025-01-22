@@ -1,8 +1,7 @@
-name: Setup - checkout, create requirements.txt, and test
+name: Test pip and conda install
 runs:
   using: composite
   steps:
-  - uses: actions/checkout@v4
   - name: Set up Python 3.10
     uses: actions/setup-python@v3
     with:

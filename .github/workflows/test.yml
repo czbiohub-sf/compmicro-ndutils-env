@@ -12,4 +12,5 @@ jobs:
   build_requirements_and_test:
     runs-on: ubuntu-latest
     steps:
-    - uses: ./.github/reusable/setup
+      - uses: actions/checkout@v4
+      - uses: ./.github/reusable/install_and_test
