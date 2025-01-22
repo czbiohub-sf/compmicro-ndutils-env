@@ -35,3 +35,4 @@ jobs:
               --repo="$GITHUB_REPOSITORY" \
               --title="${tag#v}" \
               --generate-notes
+          gh release upload "$tag" dist/*

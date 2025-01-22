@@ -23,8 +23,3 @@ runs:
         tags: ghcr.io/${{ github.repository }}:${{ env.REF_NAME }}
         build-args: |
             REF_NAME=${{ env.REF_NAME }}
-    - name: Store the distribution packages
-      uses: actions/upload-artifact@v4
-      with:
-        name: python-package-distributions
-        path: dist/
