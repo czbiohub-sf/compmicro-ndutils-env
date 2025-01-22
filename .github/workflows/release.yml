@@ -21,7 +21,7 @@ jobs:
       - uses: ./.github/reusable/build_and_push_artifacts
   release:
     name: Release pushed tag
-    needs: build_and_testg
+    needs: build_and_test
     runs-on: ubuntu-latest
     steps:
       - name: Create release
