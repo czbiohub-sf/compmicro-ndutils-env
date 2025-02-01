@@ -22,7 +22,9 @@ runs:
     run: python3 -m unittest discover
   - name: Build a conda package
     shell: bash
-    run: $CONDA/bin/conda build . --output-folder ./dist/conda
+    run: |
+      $CONDA/bin/conda install --channel=conda-forge conda-build
+      $CONDA/bin/conda build . --output-folder ./dist/conda
   - name: Install build in conda base environment
     shell: bash
     run: $CONDA/bin/conda install ./dist/conda/noarch/*.conda
