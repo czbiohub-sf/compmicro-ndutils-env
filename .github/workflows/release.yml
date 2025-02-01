@@ -30,5 +30,6 @@ jobs:
               --repo="$GITHUB_REPOSITORY" \
               --title="${tag#v}" \
               --generate-notes
-          gh release upload "$tag" dist/*
-          gh release upload "$tag" conda/noarch/*.conda
+          gh release upload "$tag" dist/*.whl
+          gh release upload "$tag" dist/*.tar.gz
+          gh release upload "$tag" dist/conda/noarch/*.conda
