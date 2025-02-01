@@ -31,3 +31,4 @@ jobs:
               --title="${tag#v}" \
               --generate-notes
           gh release upload "$tag" dist/*
+          gh release upload "$tag" conda/noarch/*.conda

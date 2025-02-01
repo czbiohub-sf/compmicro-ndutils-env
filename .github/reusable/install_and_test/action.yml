@@ -24,10 +24,10 @@ runs:
     shell: bash
     run: |
       $CONDA/bin/conda install --channel=conda-forge conda-build
-      $CONDA/bin/conda build . --output-folder ./dist/conda
+      $CONDA/bin/conda build . --output-folder ./conda
   - name: Install build in conda base environment
     shell: bash
-    run: $CONDA/bin/conda install ./dist/conda/noarch/*.conda
+    run: $CONDA/bin/conda install ./conda/noarch/*.conda
   - name: Test Conda installed version with unittest
     shell: bash
     run: $CONDA/bin/python3 -m unittest discover
