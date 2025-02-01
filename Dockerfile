@@ -44,7 +44,7 @@ ARG REF_NAME=""
 RUN echo "REF_NAME: $REF_NAME"
 
 RUN pip install --upgrade pip setuptools pip-tools && \
-  python3 -m piptools compile --output-file=${SRC_DIR}/requirements.txt ${SRC_DIR}/requirements.in && \
+  python3 -m piptools compile --no-emit-options --output-file=${SRC_DIR}/requirements.txt ${SRC_DIR}/requirements.in && \
   pip install /src/${PROJECT}
 
 RUN python3 -m unittest discover

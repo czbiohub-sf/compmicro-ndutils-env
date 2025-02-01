@@ -1,0 +1,31 @@
+{% set name = "ndutils" %}
+{% set version = "0.0.0" %}
+
+package:
+    name: "{{ name|lower }}"
+    version: "{{ version }}"
+source:
+  path: .
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
+  include_recipe: False
+
+requirements:
+  host:
+    - pip
+    - python
+  run:
+    - python
+  build:
+    - setuptools_scm
+
+about:
+  home: https://github.com/czbiohub-sf/compmicro-ndutils-env
+  license: BSD 3-Clause
+  license_file: LICENSE
+  license_family: BSD
+  summary: Environment definition for analysis of N-dimensional microscopy data
+
