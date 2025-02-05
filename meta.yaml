@@ -1,8 +1,11 @@
 {% set name = "ndutils" %}
-{% set version = "0.0.0" %}
+{% set version_match = load_file_regex(
+  load_file="ndutils/_version.py",
+  regex_pattern="(?m)^[\S\s]*^__version__ = version = \'(.+)\'$[\S\s]*$") %}
+{% set version = version_match[1] %}
 
 package:
-    name: "{{ name|lower }}"
+    name: "{{ name | lower }}"
     version: "{{ version }}"
 source:
   path: .
