@@ -9,8 +9,8 @@ runs:
   - name: Create requirements.txt file
     shell: bash
     run: |
-      python3 -m pip install .[dev]
       rm -r requirements.txt
+      python3 -m pip install .[dev]
       python3 -m pip-compile --no-emit-options
   - name: Build a binary wheel and a source tarball
     shell: bash
