@@ -6,17 +6,9 @@ runs:
     uses: actions/setup-python@v3
     with:
       python-version: "3.10"
-  - name: Create requirements.txt file
-    shell: bash
-    run: |
-      python3 -m pip install .[dev]
-      python3 -m piptools compile --no-emit-options
-  - name: Build a binary wheel and a source tarball
-    shell: bash
-    run: python3 -m build
   - name: Install package via pip
     shell: bash
-    run: pip install dist/*.tar.gz
+    run: python3 -m pip install .
   - name: Test pip installed version with unittest
     shell: bash
     run: python3 -m unittest discover

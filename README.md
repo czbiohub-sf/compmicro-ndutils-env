@@ -6,12 +6,14 @@ See releases at https://github.com/czbiohub-sf/compmicro-ndutils-env/releases.
 
 ### Pip
 ```
-python3 -m pip install https://github.com/czbiohub-sf/compmicro-ndutils-env/releases/download/v${RELEASE_VERSION}/ndutils-${RELEASE_VERSION}-py3-none-any.whl
+python3 -m pip install https://github.com/czbiohub-sf/compmicro-ndutils-env/archive/refs/tags/v${RELEASE_VERSION}.tar.gz
 ```
 
 ### Conda
 ```
-conda install https://github.com/czbiohub-sf/compmicro-ndutils-env/releases/download/v{RELEASE_VERSION}/ndutils-${RELEASE_VERSION}-py_0.conda
+git clone git@github.com:czbiohub-sf/compmicro-ndutils-env.git@v${RELEASE_VERSION}
+cd compmicro-ndutils-env
+conda env update --file=environment.yml
 ```
 
 ### Docker
@@ -20,16 +22,6 @@ A docker image is automatically built using GitHub actions whenever a version ta
 To pull and run a Docker image:
 ```
 docker run ghcr.io/czbiohub-sf/compmicro-ndutils-env:v${RELEASE_VERSION}
-```
-
-### Building from source
-````
-git clone git@github.com:czbiohub-sf/compmicro-ndutils-env.git
-cd compmicro-ndutils-env
-pip-compile  # Builds requirements.txt. Requires pip-tools.
-pip install .
-conda build .
-docker build .
 ```
 
 ## Apptainer
@@ -64,11 +56,12 @@ Summary: ndutils compute environment for computational microscopy at CZBiohub SF
 To update this environment:
 * Check out the git repo and make edits
   * Update top-level Python dependencies by editing requirements.in
+  * Regenerate requirements.txt from requirements.in by running "pip-compile --no-emit-options". (Requires "pip install pip-tools".)
 * Commit and push/merge changes to the *main* branch
 * Tag the commit with a version identifier (`git tag vX.Y.Z`)
 * Push the tag with `git push --tags` (warning this pushes ALL local tags)
 * Monitor [GitHub actions](https://github.com/czbiohub-sf/compmicro-ndutils-env/actions) to confirm the build succeeds
-* If needed, deploy the new environment to your infrastructure (e.g. by running "conda update ...".) Deployment documentation is not included here as it varies between sites.
+* If needed, deploy the new environment to your infrastructure (e.g. by running "conda env update --file=environment.yml".) Deployment documentation is not included here as it varies between sites.
 
 ## Creating a new environment
 If you want to use the code in this repo as a template for creating a new environment, you will need to make the following changes:

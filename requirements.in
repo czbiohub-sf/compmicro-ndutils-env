@@ -1,0 +1,6 @@
+# Generate the fulle requirements.txt file from requirements.in by running "pip-compile --no-emit-options". (Requires "pip install pip-tools".)
+
+iohub @ git+https://github.com/czbiohub-sf/iohub.git@c8822bc
+napari[pyqt5]
+napari-iohub @ git+https://github.com/czbiohub-sf/napari-iohub.git@29cd36b # does not include clustering
+napari-animation
