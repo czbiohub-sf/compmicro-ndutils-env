@@ -1,0 +1,7 @@
+name: ndutils
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    # Install the package from the local directory
+    - .

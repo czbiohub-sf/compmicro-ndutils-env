@@ -1,0 +1,1 @@
+Before installing, regenerate requirements.txt by running "rm -f requirements.txt && pip-compile --no-emit-options". (You may need to "pip install pip-tools" first.)

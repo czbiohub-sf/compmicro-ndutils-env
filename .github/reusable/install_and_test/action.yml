@@ -10,7 +10,8 @@ runs:
     shell: bash
     run: |
       python3 -m pip install .[dev]
-      python3 -m piptools compile --no-emit-options
+      rm -r requirements.txt
+      python3 -m pip-compile --no-emit-options
   - name: Build a binary wheel and a source tarball
     shell: bash
     run: python3 -m build
@@ -20,14 +21,9 @@ runs:
   - name: Test pip installed version with unittest
     shell: bash
     run: python3 -m unittest discover
-  - name: Build a conda package
+  - name: Install conda environment
     shell: bash
-    run: |
-      $CONDA/bin/conda install --channel=conda-forge conda-build
-      $CONDA/bin/conda build . --output-folder ./dist/conda
-  - name: Install build in conda base environment
-    shell: bash
-    run: $CONDA/bin/conda install ./dist/conda/noarch/*.conda
+    run: $CONDA/bin/conda env update --name base --file=environment.yml
   - name: Test Conda installed version with unittest
     shell: bash
     run: $CONDA/bin/python3 -m unittest discover
