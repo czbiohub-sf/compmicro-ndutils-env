@@ -6,13 +6,14 @@ See releases at https://github.com/czbiohub-sf/compmicro-ndutils-env/releases.
 
 ### Pip
 ```
-python3 -m pip install https://github.com/czbiohub-sf/compmicro-ndutils-env/archive/refs/tags/v${RELEASE_VERSION}.tar.gz
+python3 -m pip install git+https://github.com/czbiohub-sf/compmicro-ndutils-env.git@v${RELEASE_VERSION}
 ```
 
 ### Conda
 ```
-git clone git@github.com:czbiohub-sf/compmicro-ndutils-env.git@v${RELEASE_VERSION}
+git clone git@github.com:czbiohub-sf/compmicro-ndutils-env.git
 cd compmicro-ndutils-env
+git checkout v${RELEASE_VERSION}
 conda env update --file=environment.yml
 ```
 
