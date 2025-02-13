@@ -1,4 +1,6 @@
-# Generate the fulle requirements.txt file from requirements.in by running "pip-compile --no-emit-options". (Requires "pip install pip-tools".)
+# This requirements.in file specifies high-level dependencies in a human-readable format.
+# To generate a requirements.txt file which contains fully-resolved dependencies run "pip-compile --no-emit-options" (requires pip-tools)
+# The requirements.txt may be environment-dependent; users should run "pip-compile" for each python environment
 
 iohub @ git+https://github.com/czbiohub-sf/iohub.git@c8822bc
 napari[pyqt5]
