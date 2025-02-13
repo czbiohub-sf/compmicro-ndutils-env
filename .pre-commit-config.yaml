@@ -13,4 +13,4 @@ repos:
     rev: 7.4.1
     hooks:
       - id: pip-compile
-        args: [--no-emit-options, --upgrade]
+        args: [--no-emit-options, --upgrade, --no-strip-extras, --quiet]
