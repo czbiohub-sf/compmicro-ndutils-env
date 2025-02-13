@@ -3,4 +3,5 @@
 iohub @ git+https://github.com/czbiohub-sf/iohub.git@c8822bc
 napari[pyqt5]
 napari-iohub @ git+https://github.com/czbiohub-sf/napari-iohub.git@29cd36b # does not include clustering
+napari-ome-zarr
 napari-animation
