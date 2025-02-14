@@ -27,6 +27,12 @@ classifiers = [
   "Programming Language :: Python :: 3 :: Only",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pip-tools",
+    "pre-commit"
+]
+
 [project.scripts]
 env_version = "ndutils:env_version"
 
@@ -38,6 +44,7 @@ env_version = "ndutils:env_version"
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
+version = {attr = "ndutils._version.__version__"}
 
 [tool.setuptools_scm]
 version_file = "ndutils/_version.py"

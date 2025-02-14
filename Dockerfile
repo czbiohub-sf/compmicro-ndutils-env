@@ -1,5 +1,6 @@
 FROM ubuntu:22.04
 ARG PROJECT=compmicro-ndutils-env
+ARG SRC_DIR=/src/${PROJECT}
 
 # below env var required to install libglib2.0-0 non-interactively
 ENV TZ=America/Los_Angeles
@@ -34,7 +35,7 @@ RUN apt-get update && \
         libxcb-shape0 \
         && apt-get clean
 
-COPY . /src/${PROJECT}
+COPY . ${SRC_DIR}
 
 ARG REF_NAME=""
 # We use the REF_NAME build-arg to reset the docker cache, which prevents
@@ -42,8 +43,8 @@ ARG REF_NAME=""
 # the correct version.
 RUN echo "REF_NAME: $REF_NAME"
 
-RUN pip install --upgrade pip setuptools && \
-    pip install /src/${PROJECT}
+RUN pip install --upgrade pip setuptools pip-tools && \
+  pip install /src/${PROJECT}
 
 RUN python3 -m unittest discover
 
