@@ -1,43 +1,18 @@
 # compmicro-ndutils-env
-This repo contains an environment definition and automated build for Comp Micro's "ndutils" environment for analysis of N-dimensional microscopy data.
+This repo contains an environment definition and automated build for the "ndutils" Python environment used for analysis of N-dimensional microscopy data. The environment is maintained by the Computational Microscopy platform at the Chan Zuckerberg Biohub - San Francisco and is available on the `bruno` high performance compute cluster.
 
-## Installation from release
-See releases at https://github.com/czbiohub-sf/compmicro-ndutils-env/releases.
+## Loading the environment on `bruno`
+If you have access to `bruno` you can load this shared environment using
 
-### Pip
-```
-python3 -m pip install git+https://github.com/czbiohub-sf/compmicro-ndutils-env.git@v${RELEASE_VERSION}
-```
-
-### Conda
-```
-git clone git@github.com:czbiohub-sf/compmicro-ndutils-env.git
-cd compmicro-ndutils-env
-git checkout v${RELEASE_VERSION}
-conda env update --file=environment.yml
+```sh
+module load anaconda comp_micro
+conda activate ndutils
 ```
 
-### Docker
-A docker image is automatically built using GitHub actions whenever a version tag is pushed. See the GitHub-hosted [compmicro-ndutils-env](https://github.com/czbiohub-sf/compmicro-ndutils-env/pkgs/container/compmicro-ndutils-env) Docker repository.
+## Checking the environment version
+This environment is versioned, and a list of previous versions is available under Releases.
 
-To pull and run a Docker image:
-```
-docker run ghcr.io/czbiohub-sf/compmicro-ndutils-env:v${RELEASE_VERSION}
-```
-
-## Apptainer
-To run an Apptainer container created from the Docker image:
-```
-apptainer run docker://ghcr.io/czbiohub-sf/compmicro-ndutils-env:v${RELEASE_VERSION}
-```
-
-Or to run a bash shell in Apptainer:
-```
-apptainer exec docker://ghcr.io/czbiohub-sf/compmicro-ndutils-env:$v{RELEASE_VERSION} bash
-```
-
-## Checking the installed version
-You can check the version of the installed ndutils environment using the env_version command or with "pip list" or "pip show".
+You can check the version of the installed environment using the env_version command, using with "pip list", or with "pip show".
 
 ```
 $ env_version
@@ -53,24 +28,40 @@ Summary: ndutils compute environment for computational microscopy at CZBiohub SF
 ...
 ```
 
-## Creating a new release
-To update this environment:
-* Check out the git repo and make edits
-  * Update top-level Python dependencies by editing requirements.in
-  * Regenerate requirements.txt from requirements.in by running "pip-compile --no-emit-options". (Requires "pip install pip-tools".)
-* Commit and push/merge changes to the *main* branch
-* Tag the commit with a version identifier (`git tag vX.Y.Z`)
-* Push the tag with `git push --tags` (warning this pushes ALL local tags)
-* Monitor [GitHub actions](https://github.com/czbiohub-sf/compmicro-ndutils-env/actions) to confirm the build succeeds
-* If needed, deploy the new environment to your infrastructure (e.g. by running "conda env update --file=environment.yml".) Deployment documentation is not included here as it varies between sites.
+## Installation
+You can install your own copy of this environment in the following ways. See the available releases at https://github.com/czbiohub-sf/compmicro-ndutils-env/releases.
 
-## Creating a new environment
-If you want to use the code in this repo as a template for creating a new environment, you will need to make the following changes:
-* Create a new repo in GitHub. (Defining multiple environments in one GitHub repo is to be avoided because it complicates versioning and automatically building each environment separately.)
-* When copying files into the new repo, be sure to include the hidden ".github/" directory and ".gitignore" file, but exclude the ".git/" directory. (A fresh ".git" directory will be creating either by `git init` or by cloning a clean repo created in GitHub.)
-* Edit the following files and directories to update references to the git repo name (compmicro-ndutils-env), Python package name and conda environment name (ndutils), environment name. (You may want to grep to make sure there are not any others.)
-  * README.md
-  * pyproject.toml
-  * ndutils/
-* Edit the Dockerfile to ensure an appropriate ENTRYPOINT is used, if any, for the new environment.
-* Commit, tag, and push the updated code as described in "Creating a new release".
+### Pip
+```
+python3 -m pip install git+https://github.com/czbiohub-sf/compmicro-ndutils-env.git@v${RELEASE_VERSION}
+```
+
+### Conda
+```
+git clone git@github.com:czbiohub-sf/compmicro-ndutils-env.git
+cd compmicro-ndutils-env
+git checkout v${RELEASE_VERSION}
+conda env create --file=environment.yml
+```
+
+### Docker
+A docker image is automatically built using GitHub actions whenever a version tag is pushed. See the GitHub-hosted [compmicro-ndutils-env](https://github.com/czbiohub-sf/compmicro-ndutils-env/pkgs/container/compmicro-ndutils-env) Docker repository.
+
+To pull and run a Docker image:
+```
+docker run ghcr.io/czbiohub-sf/compmicro-ndutils-env:v${RELEASE_VERSION}
+```
+
+### Apptainer
+To run an Apptainer container created from the Docker image:
+```
+apptainer run docker://ghcr.io/czbiohub-sf/compmicro-ndutils-env:v${RELEASE_VERSION}
+```
+
+Or to run a bash shell in Apptainer:
+```
+apptainer exec docker://ghcr.io/czbiohub-sf/compmicro-ndutils-env:$v{RELEASE_VERSION} bash
+```
+
+## Contributing
+We welcome contributions! Please see the [Contributing guide](./CONTRIBUTING.MD)
