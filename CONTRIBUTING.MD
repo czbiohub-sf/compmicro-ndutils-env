@@ -38,6 +38,22 @@ To update this environment:
 * Open a Pull Request and ensure that the scheduled [GitHub actions](https://github.com/czbiohub-sf/compmicro-ndutils-env/actions) succeed
 * If needed, deploy the new environment to your infrastructure (e.g. by running "conda env update --file=environment.yml".) Deployment varies between sites; the CompMicro team maintains instructions for deployment on bruno [here](https://github.com/czbiohub-sf/compmicro-hpc/blob/release-procedure-for-versioned-environments/hpc/setup_shared_env.md)
 
+## Guidelines for tag names
+We use semantic versioning for tag names (i.e. `vMAJOR.MINOR.PATCH`) which are then propagated to the package version names.
+
+Increment the MAJOR version when:
+* adding a new package to `requirements.in`
+* removing a package from `requirements.in`
+* updating the major version of a pinned package in `requirements.in`
+
+Increment in MINOR version when:
+* updating the minor or patch version of a pinned package in `requirements.in`
+
+Increment the PATCH version when:
+* creating a new tag without making updates to `requirements.in`
+
+Use release candidates (e.g. `vX.Y.Zrc0`) during testing as needed.
+
 ## Creating a new environment
 If you want to use the code in this repo as a template for creating other versioned environment, you will need to make the following changes:
 * Create a new repo in GitHub. (Defining multiple environments in one GitHub repo is to be avoided because it complicates versioning and automatically building each environment separately.)
