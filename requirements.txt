@@ -4,11 +4,11 @@
 #
 #    pip-compile --no-emit-options
 #
-aiobotocore==2.19.0
+aiobotocore==2.20.0
     # via s3fs
 aiohappyeyeballs==2.4.6
     # via aiohttp
-aiohttp==3.11.12
+aiohttp==3.11.13
     # via
     #   aiobotocore
     #   ome-zarr
@@ -42,7 +42,7 @@ babel==2.17.0
     # via sphinx
 blosc2==2.7.1
     # via iohub
-botocore==1.36.3
+botocore==1.36.23
     # via aiobotocore
 build==1.2.2.post1
     # via npe2
@@ -65,7 +65,7 @@ cloudpickle==3.1.1
     #   distributed
 comm==0.2.2
     # via ipykernel
-dask[array]==2025.1.0
+dask[array]==2025.2.0
     # via
     #   distributed
     #   iohub
@@ -74,9 +74,9 @@ dask[array]==2025.1.0
     #   ome-zarr
 debugpy==1.8.12
     # via ipykernel
-decorator==5.1.1
+decorator==5.2.1
     # via ipython
-distributed==2025.1.0
+distributed==2025.2.0
     # via ome-zarr
 docstring-parser==0.16
     # via magicgui
@@ -131,6 +131,7 @@ iohub @ git+https://github.com/czbiohub-sf/iohub.git@c8822bc
     #   napari-iohub
 ipykernel==6.29.5
     # via
+    #   -r requirements.in
     #   napari-console
     #   qtconsole
 ipython==8.32.0
@@ -220,7 +221,7 @@ nest-asyncio==1.6.0
     # via ipykernel
 networkx==3.4.2
     # via scikit-image
-npe2==0.7.7
+npe2==0.7.8
     # via
     #   napari
     #   napari-animation
@@ -228,7 +229,7 @@ numcodecs==0.13.1
     # via zarr
 numexpr==2.10.2
     # via blosc2
-numpy==2.2.2
+numpy==2.2.3
     # via
     #   blosc2
     #   dask
@@ -294,11 +295,11 @@ pooch==1.8.2
     # via scikit-image
 prompt-toolkit==3.0.50
     # via ipython
-propcache==0.2.1
+propcache==0.3.0
     # via
     #   aiohttp
     #   yarl
-psutil==6.1.1
+psutil==7.0.0
     # via
     #   distributed
     #   ipykernel
@@ -392,17 +393,17 @@ rich==13.9.4
     # via
     #   npe2
     #   typer
-rpds-py==0.22.3
+rpds-py==0.23.1
     # via
     #   jsonschema
     #   referencing
 s3fs==2025.2.0
     # via fsspec
-scikit-image[data]==0.25.1
+scikit-image[data]==0.25.2
     # via
     #   napari
     #   ome-zarr
-scipy==1.15.1
+scipy==1.15.2
     # via
     #   napari
     #   napari-animation
@@ -442,7 +443,7 @@ tabulate==0.9.0
     # via numpydoc
 tblib==3.0.0
     # via distributed
-tifffile==2025.1.10
+tifffile==2025.2.18
     # via
     #   iohub
     #   napari
