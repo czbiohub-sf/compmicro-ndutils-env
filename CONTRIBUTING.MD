@@ -14,7 +14,7 @@ cd compmicro-ndutils-env
 Package dependencies can differ between different operating systems and different python versions. This package contain high-level dependencies in the [requirements.in](./requirements.in) file and uses `pip-tools` to generate fully-resolved environment-specific dependencies in [requirements.txt](./requirements.txt). The dependencies in [requirements.txt](./requirements.txt) are tested to work on `bruno` and should be updated for your environment.
 
 ```sh
-conda create -n ndutils-dev python=3.10 
+conda create -n ndutils-dev python=3.11 
 conda activate ndutils-dev
 pip install pip-tools pre-commit
 pip-compile --no-emit-options --upgrade
