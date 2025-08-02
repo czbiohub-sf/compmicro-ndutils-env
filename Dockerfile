@@ -43,9 +43,9 @@ ARG REF_NAME=""
 # the correct version.
 RUN echo "REF_NAME: $REF_NAME"
 
-RUN pip install --upgrade pip setuptools pip-tools && \
-  pip install /src/${PROJECT}
+RUN python3.11 -m pip install --upgrade pip setuptools pip-tools && \
+  python3.11 -m pip install /src/${PROJECT}
 
-RUN python3 -m unittest discover
+RUN python3.11 -m unittest discover
 
-ENTRYPOINT ["python3", "-m", "napari"]
+ENTRYPOINT ["python3.11", "-m", "napari"]
