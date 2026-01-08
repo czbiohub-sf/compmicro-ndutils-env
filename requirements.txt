@@ -180,7 +180,7 @@ multidict==6.7.0
     #   aiobotocore
     #   aiohttp
     #   yarl
-napari[pyside2]==0.6.6
+napari[pyqt5]==0.6.6
     # via
     #   -r requirements.in
     #   napari-animation
@@ -332,6 +332,12 @@ pyopengl==3.1.10
     # via napari
 pyproject-hooks==1.2.0
     # via build
+pyqt5==5.15.11
+    # via napari
+pyqt5-qt5==5.15.18
+    # via pyqt5
+pyqt5-sip==12.17.2
+    # via pyqt5
 python-dateutil==2.9.0.post0
     # via
     #   aiobotocore
