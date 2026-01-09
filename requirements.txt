@@ -4,7 +4,7 @@
 #
 #    pip-compile --no-emit-options
 #
-aiobotocore==2.26.0
+aiobotocore==3.1.0
     # via s3fs
 aiohappyeyeballs==2.6.1
     # via aiohttp
@@ -36,7 +36,7 @@ babel==2.17.0
     # via sphinx
 blosc2==3.12.2
     # via iohub
-botocore==1.41.5
+botocore==1.42.19
     # via aiobotocore
 build==1.4.0
     # via npe2
@@ -84,7 +84,7 @@ frozenlist==1.8.0
     # via
     #   aiohttp
     #   aiosignal
-fsspec[s3]==2025.12.0
+fsspec[s3]==2026.1.0
     # via
     #   dask
     #   ome-zarr
@@ -113,7 +113,7 @@ importlib-metadata==8.7.1
     # via dask
 in-n-out==0.2.1
     # via app-model
-iohub==0.3.0a3
+iohub==0.3.0a4
     # via
     #   -r requirements.in
     #   napari-iohub
@@ -389,7 +389,7 @@ rpds-py==0.30.0
     # via
     #   jsonschema
     #   referencing
-s3fs==2025.12.0
+s3fs==2026.1.0
     # via fsspec
 scikit-image[data]==0.26.0
     # via
@@ -495,7 +495,7 @@ vispy==0.15.2
     #   napari-svg
 wcwidth==0.2.14
     # via prompt-toolkit
-wrapt==1.17.3
+wrapt==2.0.1
     # via
     #   aiobotocore
     #   napari
