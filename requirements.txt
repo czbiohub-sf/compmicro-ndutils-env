@@ -4,7 +4,7 @@
 #
 #    pip-compile --no-emit-options
 #
-aiobotocore==3.1.0
+aiobotocore==3.1.2
     # via s3fs
 aiohappyeyeballs==2.6.1
     # via aiohttp
@@ -19,6 +19,8 @@ aiosignal==1.4.0
     # via aiohttp
 alabaster==1.0.0
     # via sphinx
+annotated-doc==0.0.4
+    # via typer
 annotated-types==0.7.0
     # via pydantic
 app-model==0.4.0
@@ -32,11 +34,11 @@ attrs==25.4.0
     #   aiohttp
     #   jsonschema
     #   referencing
-babel==2.17.0
+babel==2.18.0
     # via sphinx
-blosc2==3.12.2
+blosc2==4.0.0
     # via iohub
-botocore==1.42.19
+botocore==1.42.42
     # via aiobotocore
 build==1.4.0
     # via npe2
@@ -56,13 +58,13 @@ cloudpickle==3.1.2
     # via dask
 comm==0.2.3
     # via ipykernel
-dask[array]==2025.12.0
+dask[array]==2026.1.2
     # via
     #   iohub
     #   napari
     #   ndtiff
     #   ome-zarr
-debugpy==1.8.19
+debugpy==1.8.20
     # via ipykernel
 decorator==5.2.1
     # via ipython
@@ -84,7 +86,7 @@ frozenlist==1.8.0
     # via
     #   aiohttp
     #   aiosignal
-fsspec[s3]==2026.1.0
+fsspec[s3]==2026.2.0
     # via
     #   dask
     #   ome-zarr
@@ -113,7 +115,7 @@ importlib-metadata==8.7.1
     # via dask
 in-n-out==0.2.1
     # via app-model
-iohub==0.3.0a4
+iohub==0.3.0a6
     # via
     #   -r requirements.in
     #   napari-iohub
@@ -122,7 +124,7 @@ ipykernel==6.31.0
     #   -r requirements.in
     #   napari-console
     #   qtconsole
-ipython==9.9.0
+ipython==9.10.0
     # via
     #   ipykernel
     #   napari-console
@@ -134,7 +136,7 @@ jedi==0.19.2
     # via ipython
 jinja2==3.1.6
     # via sphinx
-jmespath==1.0.1
+jmespath==1.1.0
     # via
     #   aiobotocore
     #   botocore
@@ -175,7 +177,7 @@ mdurl==0.1.2
     # via markdown-it-py
 msgpack==1.1.2
     # via blosc2
-multidict==6.7.0
+multidict==6.7.1
     # via
     #   aiobotocore
     #   aiohttp
@@ -193,7 +195,7 @@ napari-iohub @ git+https://github.com/czbiohub-sf/napari-iohub.git@8ccff7c86804e
     # via -r requirements.in
 napari-ome-zarr==0.6.1
     # via -r requirements.in
-napari-plugin-engine==0.2.0
+napari-plugin-engine==0.2.1
     # via napari
 napari-svg==0.2.1
     # via napari
@@ -207,7 +209,7 @@ nest-asyncio==1.6.0
     # via ipykernel
 networkx==3.6.1
     # via scikit-image
-npe2==0.7.9
+npe2==0.8.1
     # via
     #   napari
     #   napari-animation
@@ -215,7 +217,7 @@ numcodecs==0.16.5
     # via zarr
 numexpr==2.14.1
     # via blosc2
-numpy==2.4.0
+numpy==2.4.2
     # via
     #   blosc2
     #   dask
@@ -239,7 +241,7 @@ numpydoc==1.10.0
     # via napari
 ome-zarr==0.12.2
     # via napari-ome-zarr
-packaging==25.0
+packaging==26.0
     # via
     #   build
     #   dask
@@ -253,18 +255,18 @@ packaging==25.0
     #   vispy
     #   xarray
     #   zarr
-pandas==2.3.3
+pandas==3.0.0
     # via
     #   iohub
     #   napari
     #   xarray
-parso==0.8.5
+parso==0.8.6
     # via jedi
 partd==1.4.2
     # via dask
 pexpect==4.9.0
     # via ipython
-pillow==12.1.0
+pillow==12.1.1
     # via
     #   imageio
     #   iohub
@@ -272,14 +274,13 @@ pillow==12.1.0
     #   scikit-image
 pint==0.25.2
     # via napari
-platformdirs==4.5.1
+platformdirs==4.7.0
     # via
-    #   blosc2
     #   jupyter-core
     #   npe2
     #   pint
     #   pooch
-pooch==1.8.2
+pooch==1.9.0
     # via scikit-image
 prompt-toolkit==3.0.52
     # via ipython
@@ -287,7 +288,7 @@ propcache==0.4.1
     # via
     #   aiohttp
     #   yarl
-psutil==7.2.1
+psutil==7.2.2
     # via
     #   ipykernel
     #   napari
@@ -301,8 +302,6 @@ ptyprocess==0.7.0
     # via pexpect
 pure-eval==0.2.3
     # via stack-data
-py-cpuinfo==9.0.0
-    # via blosc2
 pyconify==0.2.1
     # via superqt
 pydantic==2.12.5
@@ -318,7 +317,9 @@ pydantic-compat==0.1.2
 pydantic-core==2.41.5
     # via pydantic
 pydantic-extra-types==2.11.0
-    # via iohub
+    # via
+    #   iohub
+    #   npe2
 pygments==2.19.2
     # via
     #   ipython
@@ -336,7 +337,7 @@ pyqt5==5.15.11
     # via napari
 pyqt5-qt5==5.15.18
     # via pyqt5
-pyqt5-sip==12.17.2
+pyqt5-sip==12.18.0
     # via pyqt5
 python-dateutil==2.9.0.post0
     # via
@@ -344,8 +345,6 @@ python-dateutil==2.9.0.post0
     #   botocore
     #   jupyter-client
     #   pandas
-pytz==2025.2
-    # via pandas
 pyyaml==6.0.3
     # via
     #   dask
@@ -356,7 +355,7 @@ pyzmq==27.1.0
     # via
     #   ipykernel
     #   jupyter-client
-qtconsole==5.7.0
+qtconsole==5.7.1
     # via napari-console
 qtpy==2.4.3
     # via
@@ -378,7 +377,7 @@ requests==2.32.5
     #   pooch
     #   pyconify
     #   sphinx
-rich==14.2.0
+rich==14.3.2
     # via
     #   iohub
     #   npe2
@@ -389,13 +388,13 @@ rpds-py==0.30.0
     # via
     #   jsonschema
     #   referencing
-s3fs==2026.1.0
+s3fs==2026.2.0
     # via fsspec
 scikit-image[data]==0.26.0
     # via
     #   napari
     #   ome-zarr
-scipy==1.16.3
+scipy==1.17.0
     # via
     #   napari
     #   napari-animation
@@ -424,12 +423,12 @@ sphinxcontrib-serializinghtml==2.0.0
     # via sphinx
 stack-data==0.6.3
     # via ipython
-superqt[iconify]==0.7.7
+superqt[iconify]==0.7.8
     # via
     #   magicgui
     #   napari
     #   napari-animation
-tifffile==2025.12.20
+tifffile==2026.1.28
     # via
     #   iohub
     #   napari
@@ -446,7 +445,7 @@ tornado==6.5.4
     # via
     #   ipykernel
     #   jupyter-client
-tqdm==4.67.1
+tqdm==4.67.3
     # via
     #   iohub
     #   napari
@@ -459,7 +458,7 @@ traitlets==5.14.3
     #   jupyter-core
     #   matplotlib-inline
     #   qtconsole
-typer==0.21.1
+typer==0.23.1
     # via npe2
 typing-extensions==4.15.0
     # via
@@ -477,13 +476,10 @@ typing-extensions==4.15.0
     #   pydantic-extra-types
     #   referencing
     #   superqt
-    #   typer
     #   typing-inspection
     #   zarr
 typing-inspection==0.4.2
     # via pydantic
-tzdata==2025.3
-    # via pandas
 urllib3==2.6.3
     # via
     #   botocore
@@ -493,13 +489,13 @@ vispy==0.15.2
     #   napari
     #   napari-ome-zarr
     #   napari-svg
-wcwidth==0.2.14
+wcwidth==0.6.0
     # via prompt-toolkit
-wrapt==2.0.1
+wrapt==2.1.1
     # via
     #   aiobotocore
     #   napari
-xarray==2025.12.0
+xarray==2026.1.0
     # via iohub
 yarl==1.22.0
     # via aiohttp

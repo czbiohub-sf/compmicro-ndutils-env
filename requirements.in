@@ -2,7 +2,7 @@
 # To generate a requirements.txt file which contains fully-resolved dependencies run "pip-compile --no-emit-options" (requires pip-tools)
 # The requirements.txt may be environment-dependent; users should run "pip-compile" for each python environment
 
-iohub == 0.3.0a4
+iohub == 0.3.0a6
 napari[pyqt5]
 napari-iohub @ git+https://github.com/czbiohub-sf/napari-iohub.git@8ccff7c86804e38745eb0a058573f86ded876cd6 # does not include clustering
 napari-ome-zarr
