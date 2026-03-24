@@ -6,11 +6,15 @@ runs:
     uses: actions/setup-python@v6
     with:
       python-version: "3.12"
-  - name: Configure git for private repo access
+  - name: Checkout nd-embedding-atlas
+    uses: actions/checkout@v4
+    with:
+      repository: czbiohub-sf/nd-embedding-atlas
+      ref: b707e8c28a3fa3f876fe5805af7936b9505f36ab
+      path: nd-embedding-atlas
+  - name: Install nd-embedding-atlas from local checkout
     shell: bash
-    run: git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
+    run: python3 -m pip install ./nd-embedding-atlas
   - name: Install package via pip
     shell: bash
     run: python3 -m pip install .
