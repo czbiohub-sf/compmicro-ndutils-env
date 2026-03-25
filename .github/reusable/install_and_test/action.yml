@@ -1,4 +1,8 @@
 name: Test pip and conda install
+inputs:
+  private_repo_token:
+    description: "Token for accessing internal repos in the org"
+    required: true
 runs:
   using: composite
   steps:
@@ -6,15 +10,11 @@ runs:
     uses: actions/setup-python@v6
     with:
       python-version: "3.12"
-  - name: Checkout nd-embedding-atlas
-    uses: actions/checkout@v4
-    with:
-      repository: czbiohub-sf/nd-embedding-atlas
-      ref: b707e8c28a3fa3f876fe5805af7936b9505f36ab
-      path: nd-embedding-atlas
-  - name: Install nd-embedding-atlas from local checkout
+  - name: Configure git for internal repo access
     shell: bash
-    run: python3 -m pip install ./nd-embedding-atlas
+    run: git config --global url."https://x-access-token:${PRIVATE_REPO_TOKEN}@github.com/".insteadOf "https://github.com/"
+    env:
+      PRIVATE_REPO_TOKEN: ${{ inputs.private_repo_token }}
   - name: Install package via pip
     shell: bash
     run: python3 -m pip install .

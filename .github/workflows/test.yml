@@ -17,3 +17,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/reusable/install_and_test
+        with:
+          private_repo_token: ${{ secrets.NDEA_INTERNAL_REPO_TOKEN }}
