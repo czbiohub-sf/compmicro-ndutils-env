@@ -1,11 +1,20 @@
 name: Test pip and conda install
+inputs:
+  private_repo_token:
+    description: "Token for accessing internal repos in the org"
+    required: true
 runs:
   using: composite
   steps:
-  - name: Set up Python 3.11
-    uses: actions/setup-python@v3
+  - name: Set up Python 3.12
+    uses: actions/setup-python@v6
     with:
-      python-version: "3.11"
+      python-version: "3.12"
+  - name: Configure git for internal repo access
+    shell: bash
+    run: git config --global url."https://x-access-token:${PRIVATE_REPO_TOKEN}@github.com/".insteadOf "https://github.com/"
+    env:
+      PRIVATE_REPO_TOKEN: ${{ inputs.private_repo_token }}
   - name: Install package via pip
     shell: bash
     run: python3 -m pip install .
