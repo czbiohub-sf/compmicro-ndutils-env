@@ -52,6 +52,8 @@ To pull and run a Docker image:
 docker run ghcr.io/czbiohub-sf/compmicro-ndutils-env:v${RELEASE_VERSION}
 ```
 
+Inside the image the environment is installed into a Python virtual environment located at `/opt/venv` (added to the `PATH`, so `python` and `pip` resolve to it by default). To use it explicitly, activate it with `source /opt/venv/bin/activate`.
+
 ### Apptainer
 To run an Apptainer container created from the Docker image:
 ```
