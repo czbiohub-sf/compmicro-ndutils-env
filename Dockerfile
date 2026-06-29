@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ARG PROJECT=compmicro-ndutils-env
 ARG SRC_DIR=/src/${PROJECT}
 
@@ -7,17 +7,21 @@ ENV TZ=America/Los_Angeles
 ARG DEBIAN_FRONTEND=noninteractive
 
 # install python resources + graphical libraries used by qt and vispy
+# Ubuntu 24.04 ships python3.12 as its default python
 RUN apt-get update && \
     apt-get install -qqy  \
         build-essential \
-        python3.11 \
+        python3.12 \
+        python3.12-venv \
+        python3.12-dev \
         python3-pip \
         git \
         mesa-utils \
         x11-utils \
-        libegl1-mesa \
+        libegl1 \
         libopengl0 \
-        libgl1-mesa-glx \
+        libgl1 \
+        libglx-mesa0 \
         libglib2.0-0 \
         libfontconfig1 \
         libxrender1 \
@@ -43,9 +47,9 @@ ARG REF_NAME=""
 # the correct version.
 RUN echo "REF_NAME: $REF_NAME"
 
-RUN python3.11 -m pip install --upgrade pip setuptools pip-tools && \
-  python3.11 -m pip install /src/${PROJECT}
+RUN python3.12 -m pip install --break-system-packages --upgrade pip setuptools pip-tools && \
+  python3.12 -m pip install --break-system-packages /src/${PROJECT}
 
-RUN python3.11 -m unittest discover
+RUN python3.12 -m unittest discover
 
-ENTRYPOINT ["python3.11", "-m", "napari"]
+ENTRYPOINT ["python3.12", "-m", "napari"]
