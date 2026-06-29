@@ -47,9 +47,14 @@ ARG REF_NAME=""
 # the correct version.
 RUN echo "REF_NAME: $REF_NAME"
 
-RUN python3.12 -m pip install --break-system-packages --upgrade pip setuptools pip-tools && \
-  python3.12 -m pip install --break-system-packages /src/${PROJECT}
+# Use a virtual environment so we don't fight Ubuntu 24.04's externally-managed
+# system Python (PEP 668), which blocks upgrading the Debian-provided pip.
+RUN python3.12 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 
-RUN python3.12 -m unittest discover
+RUN pip install --upgrade pip setuptools pip-tools && \
+  pip install /src/${PROJECT}
 
-ENTRYPOINT ["python3.12", "-m", "napari"]
+RUN python -m unittest discover
+
+ENTRYPOINT ["python", "-m", "napari"]
