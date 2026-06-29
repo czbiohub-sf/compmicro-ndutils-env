@@ -10,7 +10,7 @@ repos:
     hooks:
     -   id: black
 -   repo: https://github.com/jazzband/pip-tools
-    rev: 7.4.1
+    rev: v7.5.3
     hooks:
       - id: pip-compile
         args: [--no-emit-options, --upgrade, --no-strip-extras, --quiet]
