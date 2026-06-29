@@ -55,6 +55,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install --upgrade pip setuptools pip-tools && \
   pip install /src/${PROJECT}
 
-RUN python -m unittest discover
+# Run from the source dir so discover finds the tests in the ndutils package.
+# (Python 3.12+ exits non-zero when "discover" collects no tests.)
+RUN cd /src/${PROJECT} && python -m unittest discover
 
 ENTRYPOINT ["python", "-m", "napari"]
